@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm So Sorry</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #4a4a4a;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 400px;
+            width: 90%;
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6; to 
+            font-size: 1.1rem;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 50px;
+            animation: float 2s ease-in-out infinite;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #ee5253;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        #message-after {
+            display: none;
+            color: #2ecc71;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart" onclick="celebrate()">❤️</div>
+        <div id="content-before">
+            <h1>I'm Sorry</h1>
+            <p>I feel terrible about what happened. I really value you and want to make it up to you.</p>
+            <p>Will you forgive me?</p>
+            <button class="btn" onclick="celebrate()">Yes, I Forgive You!</button>
+        </div>
+        
+        <div id="message-after">
+            <p>Thank you! ❤️ You just made my day.</p>
+            <p>Let's grab a coffee soon?</p>
+        </div>
+    </div>
+
+    <script>
+        function celebrate() {
+            // Trigger the confetti
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff6b6b', '#ff9f43', '#feca57', '#ff4dff']
+            });
+
+            // Hide the question and show the thank you message
+            document.getElementById('content-before').style.display = 'none';
+            document.getElementById('message-after').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
